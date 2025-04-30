@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body onload="fun()">
+
+
+	    <div id="wrapper">
+	       	<h1>Quote of the day</h1>
+	       	<p id="qwrapper"></p>
+	       	<p id="author"></p>
+
+	       	<button onclick="fun()" id="nq">Next Quote</button>
+
+	    </div>
+	   <div class="footer">&copy;Danish Bashir</div>
+
+</body>
+</html>
+
+<script>
+	async function fun(){
+
+		id=Math.random();
+		id=id*1454
+		//alert(id);
+		id=Math.floor(id);
+		//alert(id);
+
+		data=await fetch('https://dummyjson.com/quotes/' + id);
+		data=await data.json();
+		console.log(data)
+		document.getElementById("qwrapper").innerText=data.quote;
+		document.getElementById("author").innerText=data.author;
+
+
+	}
+	
+
+</script>
+
+
+<style>
+
+	#wrapper
+	{
+		width:30%;
+		padding:20px;
+		background-color: black;
+		margin-right: auto;
+		margin-left: auto;
+		margin-top: 200px;
+		border: 3px solid goldenrod;
+		border-radius: 10px;
+
+	}
+
+	#nq
+	{
+		 background-color: blanchedalmond;
+		 color:brown;
+		 border: 2px solid black;
+		 border-radius:10px ;
+
+
+
+	}
+
+	h1
+	{
+		text-align:center ;
+		color: #33ee00;
+		background-color: lightgoldenrodyellow;
+		border-radius: 5px;
+	}
+
+	p
+	{
+		color: #11aaa1;
+		font-style: italic;
+		animation:showQuote 3s linear forwards;
+
+	}
+	@keyframes showQuote{
+		0% {opacity:0} 100% {opacity:1}
+	}
+
+	#author
+	{
+		color: magenta;
+	}
+
+	/*p>#qwrapper
+	{
+		 animation:showQuote 3s linear forwards;
+	}	
+	@keyframes showQuote{
+		0% {opacity:0} 100% {opacity:1}
+	}*/
+
+    body
+    {
+    background-image: url('https://th.bing.com/th/id/R.301ff2cb2a408dcec8090ab9cb13bc04?rik=Nk%2fvEnomWo7adw&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f08%2fDeep-Blue-Sea-Background-2880x1800.jpg&ehk=ttAVnwjVHHTB%2bSmGrU3ECaemrxv7W36NEepZ1Rd1I2w%3d&risl=&pid=ImgRaw&r=0');
+    margin:0;
+    padding:0;
+    height:70vh;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    /*background-color: #dfff00;*/
+
+
+
+
+
+    }
+    .footer
+    {
+    	text-align: center;
+    	margin-top: 200px;
+    	font-weight: bold;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>    
